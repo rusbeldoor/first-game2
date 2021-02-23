@@ -29,6 +29,8 @@ public class Game : MonoBehaviour
         if (field.width % 2 != 0) { field.width++; }
         field.height = Main.random.Next(4, 9);
         if (field.height % 2 != 0) { field.height++; }
+
+        AddFigure();
     }
 
     void Update()
@@ -39,7 +41,7 @@ public class Game : MonoBehaviour
             // Запоминаем время добавления последней фигуры
             newFigureCreationTime = DateTime.Now;
             // Добавляем фигуру
-            AddFigure();
+            //AddFigure();
         }
     }
 

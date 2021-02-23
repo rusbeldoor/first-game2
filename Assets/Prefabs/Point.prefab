@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222eb584c0b275143897eb86b6c6ce17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  figure: {fileID: 0}
   x: 0
   y: 0
+  draggable: 0
 --- !u!212 &2752240299756612812
 SpriteRenderer:
   m_ObjectHideFlags: 0

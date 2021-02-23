@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Point : MonoBehaviour
+public class Point : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private Game game; // Игра
     public Figure figure; // Родителськая фигура
 
     public int x, y; // Координаты
+    public bool draggable;
 
     // Start is called before the first frame update
     void Start()
     {
         game = GameObject.Find("Game").GetComponent<Game>();
+        draggable = true;
     }
 
     // Update is called once per frame
@@ -27,5 +30,30 @@ public class Point : MonoBehaviour
 
         float scale = game.field.pointSize / (float)64;
         gameObject.transform.localScale = new Vector3((float)scale, (float)scale, 1);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("OnPointerEnter");
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Debug.Log("OnPointerDown");
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        Debug.Log("OnBeginDrag");
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        Debug.Log("OnDrag");
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        Debug.Log("OnEndDrag");
     }
 }

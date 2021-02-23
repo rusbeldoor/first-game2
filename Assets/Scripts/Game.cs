@@ -6,6 +6,11 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+    public const int UIPercentSize = 10; // Размер интерфейса вокруг поля в процентах
+    public int UISize; // Размер интерфейса вокруг поля
+    public GameObject prefabField;
+    public Field field;
+
     public GameObject prefabFigure;
     public DateTime newFigureCreationTime;
     public List<GameObject> figuresList = new List<GameObject>();
@@ -15,7 +20,15 @@ public class Game : MonoBehaviour
 
     void Start()
     {
-        //AddFigure();
+        int size = Mathf.Min(Screen.width, Screen.height);
+        UISize = size * (UIPercentSize / 100);
+
+        field = Instantiate(prefabField).GetComponent<Field>();
+        field.size = size - UISize;
+        field.width = Main.random.Next(4, 9);
+        if (field.width % 2 != 0) { field.width++; }
+        field.height = Main.random.Next(4, 9);
+        if (field.height % 2 != 0) { field.height++; }
     }
 
     void Update()

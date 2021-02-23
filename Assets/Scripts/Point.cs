@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class Point : MonoBehaviour
 {
-    public int x, y;
+    private Game game; // Игра
 
-    private Field field;
+    public int x, y; // Координаты
 
     // Start is called before the first frame update
     void Start()
     {
-        field = GameObject.Find("Field").GetComponent<Field>();
+        game = GameObject.Find("Game").GetComponent<Game>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float x, y, scale;
+        // Минус половина ширины/высоты поля, плюс кооридината точки по x/y, минус единица (точка с координатами 1:1 должна выводится с смещением 0:0), умножить на размер точки
+        gameObject.transform.position = new Vector3(
+            (float)((-(game.field.width / 2) + this.x - 1) * game.field.pointSize + (game.field.pointSize / 2)), 
+            (float)((-(game.field.height / 2) + this.y - 1) * game.field.pointSize + (game.field.pointSize / 2)), 
+            0
+        );
 
-        x = (-(field.width / 2) + this.x - 1) * field.cellSize + (field.cellSize / 2);
-        y = (-(field.height / 2) + this.y - 1) * field.cellSize + (field.cellSize / 2);
-        gameObject.transform.position = new Vector3((float)x, (float)y, 0);
-
-        scale = field.cellSize / (float)64;
+        float scale = game.field.pointSize / (float)64;
         gameObject.transform.localScale = new Vector3((float)scale, (float)scale, 1);
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Figure : MonoBehaviour
 {
+    private Game game; // »гра
+
     public GameObject prefabPoint;
     public List<GameObject> pointsList = new List<GameObject>();
 
@@ -14,13 +16,12 @@ public class Figure : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var Game = GameObject.Find("Game").GetComponent<Game>();
-        var Field = GameObject.Find("Field").GetComponent<Field>();
+        game = GameObject.Find("Game").GetComponent<Game>();
 
         width = Main.random.Next(1, 4);
         height = Main.random.Next(1, 4);
-        x = Main.random.Next(1, Field.width - width + 1);
-        y = Main.random.Next(1, Field.height - height + 1);
+        x = Main.random.Next(1, game.field.width - width + 1);
+        y = Main.random.Next(1, game.field.height - height + 1);
 
         // ¬ычисл€ем необходимое количество точек
         int figurePointsCount = width * height * Main.random.Next(50, 71) / 100;
@@ -49,13 +50,12 @@ public class Figure : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var game = GameObject.Find("Game").GetComponent<Game>();
-        var Field = GameObject.Find("Field").GetComponent<Field>();
-
-        double x, y;
-        x = (this.x - 1 - (int)(Field.width / 2)) * game.oneW;
-        y = ((int)(Field.height / 2) - this.y + 1) * game.oneH;
-        gameObject.transform.position = new Vector3((float)x, (float)y, 0);
+        // ћинус половина ширины/высоты пол€, плюс кооридината точки по x/y, минус единица (точка с координатами 1:1 должна выводитс€ с смещением 0:0), умножить на размер точки, плюс половина размера точки (координаты задаютс€ относительно центра объекта)
+        gameObject.transform.position = new Vector3(
+            (float)((-(game.field.width / 2) + this.x - 1) * game.field.pointSize + (game.field.pointSize / 2)), 
+            (float)((-(game.field.height / 2) + this.y - 1) * game.field.pointSize + (game.field.pointSize / 2)), 
+            0
+        );
     }
 
     /*

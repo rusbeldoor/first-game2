@@ -5,12 +5,12 @@
 [Bb]uild
 /[Bb]uilds/
 /[Ll]ibrary/
+/[Ll]ogs/
 sysinfo.txt
 *.stackdump
 /Assets/AssetStoreTools*
 *.apk
 *.unitypackage
-/*.log
 
 # visual studio
 

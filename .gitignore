@@ -10,7 +10,7 @@ sysinfo.txt
 /Assets/AssetStoreTools*
 *.apk
 *.unitypackage
-*.log
+/*.log
 
 # visual studio
 

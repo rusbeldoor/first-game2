@@ -15,12 +15,7 @@ public class Game : MonoBehaviour
 
     void Start()
     {
-        var Field = GameObject.Find("Field").GetComponent<Field>();
-
-        oneW = 1.8 * 2 / (Field.width + 2);
-        oneH = 1 * 2 * 1d / (Field.height + 2);
-
-        AddFigure();
+        //AddFigure();
     }
 
     void Update()
@@ -31,7 +26,7 @@ public class Game : MonoBehaviour
             // Запоминаем время добавления последней фигуры
             newFigureCreationTime = DateTime.Now;
             // Добавляем фигуру
-            //AddFigure();
+            AddFigure();
         }
     }
 

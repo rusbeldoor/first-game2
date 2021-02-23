@@ -6,23 +6,24 @@ public class Point : MonoBehaviour
 {
     public int x, y;
 
+    private Field field;
+
     // Start is called before the first frame update
     void Start()
     {
-
-        //Instantiate(myPrefab, new Vector3(zz, zz, 0), Quaternion.identity);
+        field = GameObject.Find("Field").GetComponent<Field>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        var Game = GameObject.Find("Game").GetComponent<Game>();
-        var Field = GameObject.Find("Field").GetComponent<Field>();
+        float x, y, scale;
 
-        double x, y;
-        x = (this.x - 1 - (int)(Field.width / 2)) * Game.oneW;
-        y = ((int)(Field.height / 2) - this.y + 1) * Game.oneH;
+        x = (this.x - 1 - (field.width / 2)) * field.cellSize + (field.cellSize / 2);
+        y = ((field.height / 2) - this.y + 1) * field.cellSize + (field.cellSize / 2);
         gameObject.transform.position = new Vector3((float)x, (float)y, 0);
-        gameObject.transform.localScale = new Vector3((float)Game.oneH, (float)Game.oneH, 1);
+
+        scale = field.cellSize / (float)2835;
+        gameObject.transform.localScale = new Vector3((float)scale, (float)scale, 1);
     }
 }

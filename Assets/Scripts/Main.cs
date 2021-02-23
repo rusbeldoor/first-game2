@@ -6,4 +6,8 @@ using UnityEngine;
 public class Main
 {
     public static System.Random random = new System.Random();
+
+    Main()
+    {
+    }
 }

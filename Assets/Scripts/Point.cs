@@ -9,13 +9,13 @@ public class Point : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     public Figure figure; // Родителськая фигура
 
     public int x, y; // Координаты
-    public bool draggable;
+    public string status; // Статус
 
     // Start is called before the first frame update
     void Start()
     {
         game = GameObject.Find("Game").GetComponent<Game>();
-        draggable = true;
+        status = "new";
     }
 
     // Update is called once per frame

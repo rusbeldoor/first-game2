@@ -21,11 +21,6 @@ public class Figure : MonoBehaviour
         x = Main.random.Next(1, game.width - width + 1);
         y = Main.random.Next(1, game.height - height + 1);
 
-        print(width);
-        print(height);
-        print(x);
-        print(y);
-
         // Вычисляем необходимое количество точек
         int figurePointsCount = width * height * Main.random.Next(50, 71) / 100;
         if (figurePointsCount < 1) { figurePointsCount = 1; }
@@ -34,8 +29,8 @@ public class Figure : MonoBehaviour
         // Пока количество точек фигуры меньше необходимого количества точек
         while (this.pointsList.Count < figurePointsCount)
         {
-            int newPointX = Main.random.Next(x, width + 1);
-            int newPointY = Main.random.Next(y, height + 1);
+            int newPointX = Main.random.Next(x, x + width + 1);
+            int newPointY = Main.random.Next(y, y + height + 1);
 
             if (!this.IssetPointByXY(newPointX, newPointY))
             {

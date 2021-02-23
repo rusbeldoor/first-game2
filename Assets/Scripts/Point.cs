@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Point : MonoBehaviour, IPointerDownHandler
+public class Point : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private Game game; // Игра
     public Figure figure; // Родителськая фигура
@@ -31,8 +31,18 @@ public class Point : MonoBehaviour, IPointerDownHandler
         gameObject.transform.localScale = new Vector3((float)scale, (float)scale, 1);
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
+        Debug.Log("OnBeginDrag");
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        Debug.Log("OnDrag");
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        Debug.Log("OnEndDrag");
     }
 }

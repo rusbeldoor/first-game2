@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6538689678547753726}
   - component: {fileID: 7403226104231366241}
   - component: {fileID: 2752240299756612812}
+  - component: {fileID: 2604244620632116314}
   m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
@@ -104,3 +105,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &2604244620632116314
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603307614695723365}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 64, y: 64, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -19,11 +19,11 @@ public class Point : MonoBehaviour
     {
         float x, y, scale;
 
-        x = (this.x - 1 - (field.width / 2)) * field.cellSize + (field.cellSize / 2);
-        y = ((field.height / 2) - this.y + 1) * field.cellSize + (field.cellSize / 2);
+        x = (-(field.width / 2) + this.x - 1) * field.cellSize + (field.cellSize / 2);
+        y = (-(field.height / 2) + this.y - 1) * field.cellSize + (field.cellSize / 2);
         gameObject.transform.position = new Vector3((float)x, (float)y, 0);
 
-        scale = field.cellSize / (float)2835;
+        scale = field.cellSize / (float)64;
         gameObject.transform.localScale = new Vector3((float)scale, (float)scale, 1);
     }
 }

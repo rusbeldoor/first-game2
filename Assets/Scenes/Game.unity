@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 67704949}
   - component: {fileID: 67704948}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ButtonMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
       - m_Target: {fileID: 3075817789663607766, guid: e2088dc1a58162d4da4dd3763bbe9318,
           type: 3}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: ToMenu
+        m_MethodName: MMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 454038907}
   - component: {fileID: 454038906}
   m_Layer: 5
-  m_Name: UI
+  m_Name: CanvasGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

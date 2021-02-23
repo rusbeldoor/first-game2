@@ -6,7 +6,7 @@ public class Figure : MonoBehaviour
     private Game game; // Игра
 
     public GameObject prefabPoint;
-    public List<GameObject> pointsList = new List<GameObject>();
+    public List<GameObject> pointsList = new List<GameObject>(); // Список точек
 
     public int x, y;
     public int width, height;
@@ -31,16 +31,17 @@ public class Figure : MonoBehaviour
         // Пока количество точек фигуры меньше необходимого количества точек
         while (this.pointsList.Count < figurePointsCount)
         {
-            int newPointX = Main.random.Next(x, x + width + 1);
-            int newPointY = Main.random.Next(y, y + height + 1);
+            int pointX = Main.random.Next(x, x + width + 1);
+            int pointY = Main.random.Next(y, y + height + 1);
 
-            if (!this.IssetPointByXY(newPointX, newPointY))
+            if (!this.IssetPointByXY(pointX, pointY))
             {
                 GameObject point = Instantiate(prefabPoint);
 
                 Point point2 = point.GetComponent<Point>();
-                point2.x = newPointX;
-                point2.y = newPointY;
+                point2.figure = this;
+                point2.x = pointX;
+                point2.y = pointY;
 
                 this.pointsList.Add(point);
             }

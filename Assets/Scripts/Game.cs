@@ -13,8 +13,8 @@ public class Game : MonoBehaviour
 
     public GameObject prefabFigure;
     public DateTime newFigureCreationTime;
-    public List<GameObject> figuresList = new List<GameObject>();
-    public List<GameObject> pointsList = new List<GameObject>();
+    public List<GameObject> figuresList = new List<GameObject>(); // Список фигур
+    public List<GameObject> pointsList = new List<GameObject>(); // Список точек
 
     public double oneW, oneH;
 

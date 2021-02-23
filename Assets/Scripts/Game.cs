@@ -11,18 +11,14 @@ public class Game : MonoBehaviour
     public List<GameObject> figuresList = new List<GameObject>();
     public List<GameObject> pointsList = new List<GameObject>();
 
-    public int width, height;
     public double oneW, oneH;
 
     void Start()
     {
-        width = Main.random.Next(4, 9);
-        if (width % 2 != 0) { width++; }
-        height = Main.random.Next(4, 9);
-        if (height % 2 != 0) { height++; }
+        var Field = GameObject.Find("Field").GetComponent<Field>();
 
-        oneW = 1.8 * 2 / (width + 2);
-        oneH = 1 * 2 * 1d / (height + 2);
+        oneW = 1.8 * 2 / (Field.width + 2);
+        oneH = 1 * 2 * 1d / (Field.height + 2);
 
         AddFigure();
     }

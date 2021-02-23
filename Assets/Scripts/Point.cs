@@ -16,11 +16,13 @@ public class Point : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var game = GameObject.Find("Game").GetComponent<Game>();
+        var Game = GameObject.Find("Game").GetComponent<Game>();
+        var Field = GameObject.Find("Field").GetComponent<Field>();
+
         double x, y;
-        x = (this.x - 1 - (int)(game.width / 2)) * game.oneW;
-        y = ((int)(game.height / 2) - this.y + 1) * game.oneH;
+        x = (this.x - 1 - (int)(Field.width / 2)) * Game.oneW;
+        y = ((int)(Field.height / 2) - this.y + 1) * Game.oneH;
         gameObject.transform.position = new Vector3((float)x, (float)y, 0);
-        gameObject.transform.localScale = new Vector3((float)game.oneH, (float)game.oneH, 1);
+        gameObject.transform.localScale = new Vector3((float)Game.oneH, (float)Game.oneH, 1);
     }
 }

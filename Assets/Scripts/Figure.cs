@@ -14,12 +14,13 @@ public class Figure : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var game = GameObject.Find("Game").GetComponent<Game>();
+        var Game = GameObject.Find("Game").GetComponent<Game>();
+        var Field = GameObject.Find("Field").GetComponent<Field>();
 
         width = Main.random.Next(1, 4);
         height = Main.random.Next(1, 4);
-        x = Main.random.Next(1, game.width - width + 1);
-        y = Main.random.Next(1, game.height - height + 1);
+        x = Main.random.Next(1, Field.width - width + 1);
+        y = Main.random.Next(1, Field.height - height + 1);
 
         // Вычисляем необходимое количество точек
         int figurePointsCount = width * height * Main.random.Next(50, 71) / 100;
@@ -49,9 +50,11 @@ public class Figure : MonoBehaviour
     void Update()
     {
         var game = GameObject.Find("Game").GetComponent<Game>();
+        var Field = GameObject.Find("Field").GetComponent<Field>();
+
         double x, y;
-        x = (this.x - 1 - (int)(game.width / 2)) * game.oneW;
-        y = ((int)(game.height / 2) - this.y + 1) * game.oneH;
+        x = (this.x - 1 - (int)(Field.width / 2)) * game.oneW;
+        y = ((int)(Field.height / 2) - this.y + 1) * game.oneH;
         gameObject.transform.position = new Vector3((float)x, (float)y, 0);
     }
 
